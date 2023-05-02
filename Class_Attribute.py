@@ -1,9 +1,9 @@
-class ClassName:
+#class ClassName:
 
 #Class Attributes
 #__init__()
 #Methods
-pass
+#pass
 
 class Dog:
 
@@ -15,10 +15,29 @@ class Dog:
         self.breed = breed
 pass
 
+print(Dog.species)
+
 class Backpack:
 
     max_num_items = 10
 
     def __int__(self):
         self.items = []
+
+class Movie:
+
+    id_counter = 1
+
+    def __init__(self, title, rating):
+        self.id = Movie.id_counter
+        self.title = title
+        self.rating = rating
+
+        Movie.id_counter += 1
+
+my_movie = Movie("Star Wars", 5)
+your_movie = Movie("Your Name", 4.6)
+
+print(my_movie.id)
+print(your_movie.id)
 
