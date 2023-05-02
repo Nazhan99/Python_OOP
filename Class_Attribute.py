@@ -24,6 +24,15 @@ class Backpack:
     def __int__(self):
         self.items = []
 
+my_backpack = Backpack()
+your_backpack = Backpack()
+
+print(my_backpack.max_num_items)
+print(your_backpack.max_num_items)
+
+Backpack.max_num_items = 15
+print(Backpack.max_num_items)
+
 class Movie:
 
     id_counter = 1
@@ -40,4 +49,7 @@ your_movie = Movie("Your Name", 4.6)
 
 print(my_movie.id)
 print(your_movie.id)
+
+
+
 
