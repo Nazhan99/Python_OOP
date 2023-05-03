@@ -49,3 +49,11 @@ my_movie = Movie("Star wars", 2020, english, 9.0)
 print(my_movie._id)
 
 #https://docs.python.org/3/tutorial/classes.html#private-variables
+
+class PC:
+
+    def __int__(self):
+        self.__disk = ["folder"]
+
+my_PC = PC()
+print(my_PC._PC__disk)
