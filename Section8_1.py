@@ -10,7 +10,7 @@ class Circle:
 class Backpack:
 
     def __init__(self):
-        self.items = []
+        self._items = []
 
     @property
     def items(self):
@@ -33,4 +33,15 @@ class Backpack:
     def has_item(self, item):
         return item in self._items
 
-    
+my_backpack = Backpack()
+print(my_backpack)
+
+my_backpack.add_items("Water Bottle")
+print(my_backpack.items)
+
+my_backpack.add_items("Sleeping Bag")
+print(my_backpack.items)
+
+has_water = my_backpack.has_item("Water Bottle")
+print(has_water)
+
