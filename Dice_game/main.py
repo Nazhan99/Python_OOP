@@ -13,12 +13,6 @@ class Die:
         self._value = new_value
         return new_value
 
-die = Die()
-
-print(die.value)
-
-die.roll()
-print(die.value)
 
 
 #player class
@@ -49,12 +43,60 @@ class Player:
         self._counter -=1
 
     def roll_die(self):
-        self._die.roll()
+        return self._die.roll()
 
 
-# Testing the player class
-my_die = Die()
-my_player = Player(my_die, True)
+class DiceGame:
 
-print(my_player.die)
+    def __init__(self, player, computer):
+        self._player = player
+        self._computer = computer
 
+    def play(self):
+        print("===================================")
+        print("Welcome to Roll the Dice!")
+        print("===================================")
+        while True:
+            self.play_round()
+                #TODO: implement game over
+
+    def play_round(self):
+        #Welcome the user
+
+        print("------ New Round ------")
+        input("Press any key to roll the dice.")
+
+        #Roll the dice
+        player_value = self._player.roll_die()
+        computer_value = self._computer.roll_die()
+
+    # Show the values
+        print(f"Your die: {player_value}")
+        print(f"Computer die: {computer_value}")
+
+        #Determine winner and loser
+        if player_value > computer_value:
+            print("You won the round!")
+            self._player.decrement_counter() #Winner
+            self._computer.increment_counter() #Loser
+
+        elif computer_value > player_value:
+            print("The computer won this round. Try again.")
+            self._player.increment_counter() #Loser
+            self._computer.decrement_counter() #Winner
+        else:
+            print("It's a draw!")
+
+        print(f"Your counter: {self._player.counter}")
+        print(f"Computer counter: {self._computer.counter}")
+
+player_die = Die()
+computer_die = Die()
+
+my_player = Player(player_die, is_computer=False)
+computer_player = Player(computer_die, is_computer=True)
+
+game = DiceGame(my_player, computer_player)
+
+#Start the game
+game.play()
