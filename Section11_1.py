@@ -47,4 +47,4 @@ my_backpack.add_item("Pencil")
 
 print(my_backpack.items)
 print(your_backpack.items)
-print(her_bakpack.items)S
+print(her_bakpack.items)
